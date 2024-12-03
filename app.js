@@ -101,4 +101,12 @@ function showWines(wines) {
     wineListUL.innerHTML = strListe;
 }
 
-// 
+// Rechercher dans localstorage le vin selectionné 
+let result = JSON.parse(localStorage.wines).filter(wine=>wine.id==this.DataTransferItem.id);
+
+if(result.length>0) {
+    let wine= result[0];
+    
+    const wineDetails = document.querySelector('#wine-details');
+    wineDetails.innerHTML = wine.id;
+}
